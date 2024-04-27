@@ -1,0 +1,1 @@
+In this capstone project, I am going to create a CLI tool using Bash that the user can easily use to upload files to an Azure storage.

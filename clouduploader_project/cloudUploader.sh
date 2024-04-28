@@ -1,7 +1,8 @@
+
 #!/bin/bash
 
 upload_to_azure() {
-    local file_path="$1"
+    local file_path=~/github_repos/learn_to_cloud_azure/clouduploader_project/helloWorld.txt
     
     # Check if Azure CLI is installed
     if ! command -v az &> /dev/null; then
@@ -16,20 +17,14 @@ upload_to_azure() {
     fi
     
     # Azure storage account name and container name
-    storage_account="<your_storage_account_name>"
-    container_name="<your_container_name>"
+    storage_account="clouduploaderstorage1"
+    container_name="clouduploadercontainer"
     
     # Upload file to Azure Blob Storage
-    az storage blob upload --account-name "$storage_account" --container-name "$container_name" --file "$file_path" --name "$(basename "$file_path")"
+    az storage blob upload --account-name "$storage_account" --container-name "$container_name" --file "$file_path" --name "helloWorld.txt"
     
     echo "File uploaded successfully to Azure Blob Storage."
 }
 
-# Check if file path is provided as an argument
-if [ $# -ne 1 ]; then
-    echo "Usage: $0 /path/to/file"
-    exit 1
-fi
-
-file_path="$1"
-upload_to_azure "$file_path"
+# Call the function to upload the file
+upload_to_azure

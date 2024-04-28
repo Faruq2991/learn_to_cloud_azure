@@ -17,8 +17,11 @@ upload_to_azure() {
     fi
     
     # Azure storage account name and container name
-    storage_account="clouduploaderstorage1"
-    container_name="clouduploadercontainer"
+    echo "Enter the Storage account: "
+    read storage_account
+    
+    echo "Enter the container name: "
+    read container_name
     
     # Upload file to Azure Blob Storage
     az storage blob upload --account-name "$storage_account" --container-name "$container_name" --file "$file_path" --name "helloWorld.txt"

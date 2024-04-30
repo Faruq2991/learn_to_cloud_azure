@@ -2,7 +2,7 @@
 
 echo "Login"
 
-#az login
+az login
 
 echo "Enter a Resource Group name and Location: "
 
